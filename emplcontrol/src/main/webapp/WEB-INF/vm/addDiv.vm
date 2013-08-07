@@ -1,0 +1,23 @@
+
+#parse("header.vm")
+        <span style = "margin-left:5px;margin-top:5px;" ><a href = "$link.contextURL/startpage/">#springMessage("mainPage")</a> </span>
+<form method="POST" action="">
+<table style  = "margin-top: 20px;">
+			<tr>    
+				<td width="110" height = "20"><b>#springMessage("division"):</b></td>
+				<td> #springFormInput("formDiv.nameDiv")</td>
+				<td>#springShowErrors("<br>" "errorblock")	
+				#if ($mesDiv == true) <div class="errorblock">#springMessage("messsageDiv")</div> #end
+				</td>		
+                 	</tr>
+</table>
+<span style  = "float: left; margin-right: 4px;margin-left: 20px;">
+<input type="submit" value = '#springMessage("send")'/> 
+</span>
+</form>
+<form method="GET" action="$link.contextURL/startpage/">
+	  		<input type="submit"value = '#springMessage("cancel")'/> 
+</form>
+	
+
+#parse("footer.vm")

@@ -1,0 +1,33 @@
+#parse("header.vm")
+        <p><a href = "$link.contextURL/startpage/">#springMessage("mainPage")</a>  </p>
+#if ($addEdiEmpl == false)
+	<p><a href = "$link.contextURL/emplsearch/">#springMessage("back")</a>    </p>
+ #end
+
+<div id = "table_full">
+<form method="POST" action="">
+
+<table>
+#if ($addEditEmpl == false)
+	#foreach ($i in $employees)
+		#parse("EmplList.vm") 		
+	#end
+#else
+   #parse("EmplList.vm")
+#end
+
+  </table>
+<span style  = "float: left; margin-right: 4px;">
+<input type="submit" value = '#springMessage("send")'/> 
+</span>
+</form>
+#if ($addEditEmpl == false)
+	  	<form method="GET" action="$link.contextURL/emplsearch/"> 	  		
+#else
+	<form method="GET" action="$link.contextURL/startpage/"> 	  		
+#end
+<input type="submit"value = '#springMessage("cancel")'/> 
+</form>	
+
+  </div>    
+#parse("footer.vm")

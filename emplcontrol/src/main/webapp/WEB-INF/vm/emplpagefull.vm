@@ -1,0 +1,37 @@
+ #parse("header.vm")
+        <p><a href = "$link.contextURL/startpage/">#springMessage("mainPage")</a>  </p>
+	<p><a href = "$link.contextURL/emplsearch/">#springMessage("back")</a>    </p>
+<div id = "table_full">
+<table>
+		 <tr>    
+			<td width="150" height = "20"><b>#springMessage("firstName")</b></td>
+			<td>$employees.FirstName</td>
+                 </tr>
+ <tr>    
+			<td width="150" height = "20"><b>#springMessage("lastName")</b></td>
+			<td>$employees.LastName</td>
+                 </tr>
+ 		<tr>    
+			<td width="150" height = "20"><b>#springMessage("salary")</b></td>
+			<td>$number.format($employees.Salary)</td>
+                 </tr>
+		<tr>    
+			<td width="150" height = "20"><b>#springMessage("active")</b></td>
+			<td>$employees.Active</td>
+		   </tr>
+<tr>  
+			<td width="150" height = "20"><b>#springMessage("birthdate")</b></td>
+			<td>$date.format('dd.MM.yyyy', $employees.Birthdate)</td>
+</tr>  
+<tr> 
+<td width="150" height = "20"><b>#springMessage("division")</b></td>
+			
+				<td>$division.nameDiv</td>
+		
+		</tr> 
+		
+	
+  </table>
+  </div>    
+ 
+ #parse("footer.vm")

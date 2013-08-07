@@ -1,0 +1,25 @@
+#parse("header.vm")
+<span style = "margin-left:5px;margin-top:4px;" ><a href = "$link.contextURL/startpage/">#springMessage("mainPage")</a> </span>
+<table style="margin-left:50px;margin-top:20px;" >
+	<tr>
+		<td width="150"><b>#springMessage("firstName")</b></td>
+		<td width="150"><b>#springMessage("lastName")</b></td>
+	</tr>
+	#foreach ($i in ${employees})
+ 		<tr style="background-color:#ECECEC;cursor:pointer; "
+    onMouseOver="this.style.backgroundColor='white';"
+    onMouseOut="this.style.backgroundColor='#ECECEC'"onclick="location.href='$link.contextURL/employees/$i.emplId'"> 	
+				<td>${i.firstName}</td>
+				<td>${i.lastName}</td>
+				<td style="background-color:white;">
+				#if($userRole == true)
+					<a href = "$link.contextURL/employees/edit/$i.emplId"><img src="$link.contextURL/resources/icon/edit.png" width="24" height="24" alt= '#springMessage("emplEdit")' title='#springMessage("emplEdit")'/> </a>
+				#end
+				</td>	
+		</tr>                                                                                                            
+	#end
+	
+</table>
+
+ 
+ #parse("footer.vm")

@@ -1,0 +1,38 @@
+
+		 <tr>    
+			<td width="150" height = "20"><b>#springMessage("firstName")</b></td>
+			<td> #springFormInput("formEmpl.firstName")</td>
+			<td>#springShowErrors("<br>" "errorblock")</td>			
+                 </tr>
+ 		 <tr>    
+			<td width="150" height = "20"><b>#springMessage("lastName")</b></td>
+			<td>#springFormInput("formEmpl.lastName")</td>
+			<td>#springShowErrors("<br>" "errorblock")</td>
+                 </tr>
+ 		<tr>    
+			<td width="150" height = "20"><b>#springMessage("salary")</b></td>
+			<td>#springFormInput("formEmpl.salary")</td>
+			<td>#springShowErrors("<br>" "errorblock")</td>
+                 </tr>
+		<tr>    
+			<td width="150" height = "20"><b>#springMessage("active")</b></td>
+			<td>#springFormCheckbox("formEmpl.active")</td>
+			<td>#springShowErrors("<br>" "errorblock")</td>
+		   </tr>
+		  <tr>  
+			<td width="150" height = "20"><b>#springMessage("birthdate")</b></td>
+			<td> #springFormInput("formEmpl.birthdate")</td>
+
+			<td>#springShowErrors("<br>" "errorblock")
+				#if ($mesYearFlag == true)
+					<div class="errorblock">   #springMessage("messageYear") </div>
+				#end
+			     
+			</td>
+		</tr>  
+		<tr> 
+			<td width="150" height = "20"><b>#springMessage("division")</b></td>
+			<td> #springFormSingleSelect("formEmpl.emplDiv", $division)</td>
+			
+		</tr> 
+

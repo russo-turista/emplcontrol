@@ -1,0 +1,62 @@
+ #parse("header.vm")
+    <div id = "menu">
+        <div  id ="menu_top"></div>
+        <div id = "menu_cont"> 
+
+            <ul>	
+                <li>	
+                    <a href = "$link.contextURL/employees/">#springMessage("employee")</a>
+                </li>
+                <li>
+                    #if ($userRole == true)
+                        <a href = "$link.contextURL/employees/addEmpl">#springMessage("employeeAdd")</a>
+                    #end
+                </li>
+                <li>
+                        #if ($userRole == true)
+                            <a href = "$link.contextURL/division/">#springMessage("divisionAll")</a>
+                        #end
+                </li>
+                <li>					
+                    #if ($userRole == true)
+                        <a href = "$link.contextURL/division/addDiv">#springMessage("divisionAdd")</a>
+                    #end
+                </li>
+        </ul>		   			
+    </div>
+    </div>
+            
+       <div id = "search">
+            <div id = "search_top"></div>
+             <div id = "search_cont">
+</br>
+<h3> #springMessage("fromSearch")</h3>
+
+    <form method="POST" action="$link.contextURL/employees/">
+      
+          <label for="firstName"> #springMessage("firstName") #springFormInput("formEmpl.searchFirstName" "input")</label>
+       
+      
+         <label for="lastName"> #springMessage("lastName")#springFormInput("formEmpl.searchLastName" "input")</label>
+           </br>
+        <label>&nbsp;  <input type="submit" value = '#springMessage("search")' />
+         <input name="reset" type="reset" value = '#springMessage("reset")'/>   </label>
+            </form>
+</br>
+#if($emplNull)   
+<div class = "errorblock">
+
+                    #springMessage("messsageNullPerson")
+</div>
+            #end
+            #if($count5000)
+<div class = "errorblock">
+                    #springMessage("count5000")
+</div>
+            #end
+    </div>
+</div>
+
+
+ 
+ #parse("footer.vm")

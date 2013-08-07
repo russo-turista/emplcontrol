@@ -1,0 +1,24 @@
+#parse("header.vm")
+        <span style = "margin-left:5px;margin-top:5px;" ><a href = "$link.contextURL/startpage/">#springMessage("mainPage")</a> </span>
+
+<table  style="margin-left:50px;margin-top:20px;" >
+	<tr>
+		<td width="150"><b>#springMessage("division")</b></td>
+		
+	</tr>
+	#foreach ($i in ${division})
+	#set( $linkDiv = $link.absolute("edit/$i.divId"))
+ 		<tr style="background-color:#ECECEC;">
+			<td>${i.nameDiv}</td> 
+
+			<td style="background-color:white;">
+				#if($userRole == true)
+					<a href = "$link.setURI("$linkDiv/")"><img src="$link.contextURL/resources/icon/edit.png" width="24" height="24"  title='#springMessage("emplEdit")'/> </a>                
+			</td>
+				#end		
+		</tr>
+	#end
+</table>
+
+
+#parse("footer.vm")
